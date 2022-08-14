@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/dashStyle.css">
+    <script src="static/Script.js" defer></script>
+
+    <title>Dashboard</title>
+</head>
+<body>
+    <p>dashboard</p>
+    <header class="primary-header flex">
+        <div><a href="/dashboard"><img class="logo" id="logo" src="/static/assets/logo.jpeg" alt="logo"></a>
+        </div>
+        <button class="mobile-nav-toggle"  aria-controls="primary-nav" aria-expanded="false"><span class="sr-only"></span></button>
+        <nav>
+            <ul id="primary-nav" data-visible="false" class="primary-nav flex">
+                <li class="active"><a href="/new">
+                    <span aria-hidden="true">00</span>Our Store</a></li>
+                <li><a href="/user/account">
+                    <span aria-hidden="true">01</span>Account</a></li>
+                <li> <a href="/logout">
+                    <span aria-hidden="true">02</span>Logout</a> </li>
+                <li> <a href="/cart"><img class ="cart" src="/static/assets/shopping.png" alt="check cart"><span aria-hidden="true"></span></a> </li>
+            </ul>
+        </nav>
+    </header>
+    <!-- <div class="header">
+        <div class="dropdown" data-dropdown>
+            <a href="/dashboard"><img id="logo" src="/static/assets/logo.jpeg" alt="logo"></a>
+            <button class="link" data-dropdown-button>About</button>
+            <div class="dropdown-menu information-grid">
+                <div>
+                    <div class="dropdown-heading">
+                        <p class="about">About Us:</p>
+                    </div>
+                    <div class="dropdown-links">
+                        <a class="link" href="/whoWeAre">Who We Are</a>
+                        <a class="link" href="/aboutbeef">About our beef</a>
+                    </div>
+                </div>
+            </div>
+            <a href="/new" class="link">Our Store</a>
+            <a href="/user/account" class="link">Account</a>
+            <div class="left-top">
+                <a href="/logout" class="link">Logout</a>
+                <a href="/cart" class="link"><img class ="cart" src="/static/assets/cart.jpg" alt="cart"></a>
+            </div>
+        </div>
+    </div> -->
+        <!-- divide here -->
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-10">
+                <h1>Welcome, {{ this_user.first_name }}!</h1>
+                <h2>Meats</h2>
+            </div>
+        </div>
+        <div class="row">
+            <table class="table">
+                <tbody>
+                    {%for this_cut in all_cuts%}
+                    <tr>
+                        <td><a href="/show/{{this_cut.id}}">{{this_cut.cut_of_beef}}</a>
+                        <td>Added by: {{this_cut.user.first_name}} {{this_cut.user.last_name}}</td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

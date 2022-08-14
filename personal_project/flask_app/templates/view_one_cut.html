@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/viewStyle.css">
+    <script src="/static/Script.js" defer></script>
+    <title>About this Cut</title>
+</head>
+<body>
+    <p>view one cut</p>
+    <header class="primary-header flex">
+        <div><a href="/dashboard"><img class="logo" id="logo" src="/static/assets/logo.jpeg" alt="logo"></a>
+        </div>
+        <button class="mobile-nav-toggle"  aria-controls="primary-nav" aria-expanded="false"><span class="sr-only"></span></button>
+        <nav>
+            <ul id="primary-nav" data-visible="false" class="primary-nav flex">
+                <li class="active"><a href="/new">
+                    <span aria-hidden="true">00</span>Our Store</a></li>
+                <li><a href="/user/account">
+                    <span aria-hidden="true">01</span>Account</a></li>
+                <li> <a href="/logout">
+                    <span aria-hidden="true">02</span>Logout</a> </li>
+                <li> <a href="/cart"><img class ="cart" src="/static/assets/shopping.png" alt="check cart"><span aria-hidden="true"></span></a> </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="col">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-10">
+                <h1>{{ this_cut.location }} {{this_cut.name}}</h1>
+            </div>
+        </div>
+        <p>Added by: {{this_cut.user.first_name}} {{this_cut.user.last_name}}</p>
+        <p>Special Instructions: {{this_cut.special_instructions}}</p>
+    </div>
+    <ul>
+            <li>{{ this_cut.cut_of_beef}}: <a href="/{{this_cut.id}}/delete"> Delete</a></li>
+            <li><a href="/{{this_cut.id}}/edit"> Edit</a></li>
+        </ul>
+    </div>
+</body>
+</html>

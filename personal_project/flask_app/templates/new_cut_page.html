@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/newStyle.css">
+    <script src="static/Script.js" defer></script>
+    <script src="#" defer></script>
+    <title>make an order</title>
+</head>
+<body>
+    <p>new cut page</p>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-10">
+                <p>new cut page</p>
+                <h1>Add to your cart, {{ this_user.first_name }}!</h1>
+            </div>
+            <header class="primary-header flex">
+                <div><a href="/dashboard"><img class="logo" id="logo" src="/static/assets/logo.jpeg" alt="logo"></a>
+                </div>
+                <button class="mobile-nav-toggle"  aria-controls="primary-nav" aria-expanded="false"><span class="sr-only"></span></button>
+                <nav>
+                    <ul id="primary-nav" data-visible="false" class="primary-nav flex">
+                        <li class="active"><a href="/new">
+                            <span aria-hidden="true">00</span>Our Store</a></li>
+                        <li><a href="/user/account">
+                            <span aria-hidden="true">01</span>Account</a></li>
+                        <li> <a href="/logout">
+                            <span aria-hidden="true">02</span>Logout</a> </li>
+                        <li> <a href="/cart"><img class ="cart" src="/static/assets/shopping.png" alt="check cart"><span aria-hidden="true"></span></a> </li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+        <div class="schedule">
+            <p>Check out our products</p>
+            <ul>
+                <li>Porter House $20</li>
+                <li>Fillet $24</li>
+                <li>Ribeye $18</li>
+                <li>Rib Steak $16</li>
+                <li>T-Bone $18</li>
+                <li>NY Strip $17</li>
+                <li>Hanging Tender $14</li>
+                <li>Sirloin $14</li>
+                <li>Flat Iorn $14</li>
+                <li>Sirloin Tip $13</li>
+                <li>Organ Meats $5</li>
+                <li>Hamburger $6.50</li>
+                <li>Short Ribs $6</li>
+                <li>Briskit $8</li>
+                <li>Ox Tail $10</li>
+                <li>Tri-Tip $12</li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col">
+                <form action="/cuts/add_to_db" method = "POST">
+                    {% with messages = get_flashed_messages()%}     <!-- declare a variable called messages -->
+                        {% if messages %}                            <!-- check if there are any messages -->
+                            {% for message in messages %}            <!-- loop through the messages -->
+                                <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    <div class="row my-2">
+                        <label class="col-4 col-form-label">Cut of beef:</label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" name="cut_of_beef">
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <label class="col-4 col-form-label">Special Instructions:</label>
+                        <div class="col-8">
+                            <textarea class="form-control" name="special_instructions"></textarea>
+                        </div>
+                    </div>
+                    <!-- <div class="row my-2">
+                        <label class="col-4 col-form-label">loves food:</label>
+                        <div class="col-8">
+                            <input type="radio" class="form-control" name="food" value="0">yes
+                            <input type="radio" class="form-control" name="food" value="1">no
+                        </div>
+                    </div> -->
+                    <div class="row my-2">
+                        <div class="offset-4">
+                            <button class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

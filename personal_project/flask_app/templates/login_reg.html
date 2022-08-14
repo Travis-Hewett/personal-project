@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/loginStyle.css">
+    <script src="static/loginScript.js"defer></script>
+    <script src="static/Script.js" defer></script>
+    <title>Heatherington Cattle </title>
+</head>
+<body>
+    <div class="top">
+        <header class="primary-header flex">
+            <div><a href="/dashboard"><img class="logo" id="logo" src="/static/assets/logo.jpeg" alt="logo"></a>
+            </div>
+            <button class="mobile-nav-toggle"  aria-controls="primary-nav" aria-expanded="false"><span class="sr-only"></span></button>
+            <nav>
+                <ul id="primary-nav" data-visible="false" class="primary-nav flex">
+                    <li class="active"><a href="/whoWeAre">
+                        <span aria-hidden="true">00</span>Who We Are</a></li>
+                    <li><a href="/aboutbeef">
+                        <span aria-hidden="true">01</span>About our Beef</a></li>
+                </ul>
+            </nav>
+        </header>
+        <h1>Welcome to Heatherington Cattle website</h1>
+    </div>
+    <div id="header">
+        <div id="monthDisplay"></div>
+        <div id="headbtn">
+            <button id="backButton">Back</button>
+            <button id="nextButton">Next</button>
+        </div>
+    </div>
+
+    <div id="weekdays">
+        <div>Sunday</div>
+        <div>Monday</div>
+        <div>Tuesday</div>
+        <div>Wednesday</div>
+        <div>Thursday</div>
+        <div>Friday</div>
+        <div>Saturday</div>
+    </div>
+
+    <div id="calendar"></div>
+    </div>
+
+    <div id="newEventModal">
+        <h2>New Event</h2>
+
+        <input id="eventTitleInput" placeholder="Event Title" />
+
+        <button id="saveButton">Save</button>
+        <button id="cancelButton">Cancel</button>
+    </div>
+
+    <div id="deleteEventModal">
+        <h2>Event</h2>
+
+        <p id="eventText"></p>
+
+        <button id="deleteButton">Delete</button>
+        <button id="closeButton">Close</button>
+    </div>
+
+    <div id="modalBackDrop"></div>
+    <div class="wrapper">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/H9OCW7Jl4Wo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="login">
+            <div class="col">
+                <h1>Register</h1>
+                <form action="/register" method="POST">
+                    {% with messages = get_flashed_messages(category_filter=["register"]) %}     <!-- declare a variable called messages -->
+                        {% if messages %}                            <!-- check if there are any messages -->
+                            {% for message in messages %}            <!-- loop through the messages -->
+                                <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    <div class="row my-2">
+                        <label class="col-4 col-form-label">First name:</label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" name="first_name">
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <label class="col-4 col-form-label">Last name:</label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" name="last_name">
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <label class="col-4 col-form-label">Email:</label>
+                        <div class="col-8">
+                            <input type="email" class="form-control" name="email">
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <label class="col-4 col-form-label">Password:</label>
+                        <div class="col-8">
+                            <input type="password" class="form-control" name="password">
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <label class="col-4 col-form-label">Confirm password:</label>
+                        <div class="col-8">
+                            <input type="password" class="form-control" name="confirm_password">
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="offset-4">
+                            <button class="btn btn-primary">Register</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col">
+                <h1>Log in</h1>
+                <form action="/login" method="POST">
+                    {% with messages = get_flashed_messages(category_filter=["login"]) %}     <!-- declare a variable called messages -->
+                        {% if messages %}                            <!-- check if there are any messages -->
+                            {% for message in messages %}            <!-- loop through the messages -->
+                                <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    <div class="row my-2">
+                        <label class="col-4 col-form-label">Email:</label>
+                        <div class="col-8">
+                            <input type="email" class="form-control" name="email">
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <label class="col-4 col-form-label">Password:</label>
+                        <div class="col-8">
+                            <input type="password" class="form-control" name="password">
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="offset-4">
+                            <button class="btn btn-primary">Log in</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+
+</html>
