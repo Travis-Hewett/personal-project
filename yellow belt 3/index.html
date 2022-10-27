@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/3cf1c0c1d0.js" crossorigin="anonymous"></script>
+    <title>Gaming Dojo</title>
+</head>
+<body>
+<!-- start of left box -->
+    <div class="container-l">
+        <img class="logo" src="./assets/logo.png" alt="bowl">
+        <a class="ba" href="">About Us</a>
+        <a class="ta" href="">Menu</a>
+        <a class="ta" href="">Catering</a>
+        <div class="hours">
+            <p>Hours</p>
+            <p class="gray">mon - fri 11am - 10pm <br> sat 12pm - 1am <br> sun 12pm - 9pm </p>
+        </div>
+        <p>Locations</p>
+        <img class="map" src="./assets/map.png" alt="mapmarker">
+        <button onclick="alert('call us at 555-5555')" class="contact">Contact Us</button>
+    </div>
+    <!--this is the start of the right side-->
+    <div class="container-r">
+        <video controls autoplay loop id="myVideo" src="./assets/video.webm"></video>
+        <!--this is the two lower boxes-->
+        <div class="twobox">
+            <!--this is the poke your way-->
+            <div class="choose">
+                <p class="pokes">Poke your way</p>
+                <div class="one">
+                    <p class="myDIV"> <span class="numbers">1</span> Chose your Protine <br> 
+                        <span class="hide" id="text">Salmon, Tuna, Tofu</span></p>
+                </div>
+                <div class="two" id="two">
+                    <p class="myDIV"> <span class="numbers">2</span> Pick your base</p>
+                </div>
+                <div class="three" id="three">
+                    <p class="myDIV"> <span class="numbers">3</span> Select a marinade</p>
+                </div>
+            </div>
+            <!--this is the definition-->
+            <div class="definition">
+                <p> <span class="span"> Poke </span> <span class="poke"> /pō kà/ </span></p>
+                <p class="noun">noun</p>
+                <p class="def">Pronounced (Po-kay) a popular Hawaiian dish of marinated, diced raw fish servied over rice</p>
+                <button id="btn" onclick="audio.play()" class="sound">
+                    <img class="sound" src="./assets/sound-dark.png" alt="Pronunciation">
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
